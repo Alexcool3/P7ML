@@ -1,0 +1,6 @@
+import requests
+import url
+url = url.URL.DOWNLOAD.value
+r = requests.post(url, data={'value': 'Hello!'})
+x = r.text.splitlines()
+print(x[0])

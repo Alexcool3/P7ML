@@ -1,4 +1,0 @@
-import requests
-url = "https://p7server.000webhostapp.com/download_files.php"
-r = requests.post(url, data={'value': 'Hello!'})
-x = r.text.splitlines()
