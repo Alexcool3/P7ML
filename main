@@ -1,3 +1,11 @@
 import requests
+import url
+import web_connection as wc
+import pandas as pd
+import features
 
+df = wc.read_csv_files_from_url(url.URL.TEST.value)
 
+#tmp = preprocessing.waiting_info(df[2]["X"], df[2]["Z"], df[2]["Time"])
+print(f'Total Distance:{features.distance(df[2]["X"], df[2]["Z"])}')
+#print(f'Waiting Time:{round(tmp[0], 2)}, Waiting Count:{round(tmp[1],2)}, Wait Time Percentage:{round(tmp[2],2)}, Average Waiting Time:{round(tmp[3],2)}')
