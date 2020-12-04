@@ -29,10 +29,18 @@ def waiting_info(x, z, time):
 def distance(x, z):
     dist = 0
     for i in range(len(x)-1):
-        dist += math.sqrt((x[i+1]-x[i])**2 + (z[i+1]-z[i])**2)
-    return dist
+        dist += math.sqrt(((x[i+1]-x[i])**2 + (z[i+1]-z[i])**2))
+    return round(dist, 2)
 
 
 # This function computes the instantaneous speed for each second.
-def ispeed(x, z, time):
-    pass
+def ispeed(x, z):
+    tmp = []
+    for i in range(math.floor(len(x)/10)+1):
+        if i == int(len(x)/10):
+            tmp.append(distance(x[i*10:i*10+len(x) % 10].values.tolist(), z[i*10:i*10+len(x) % 10].values.tolist()))
+        else:
+            tmp.append(distance(x[i*10:(i+1)*10].values.tolist(), z[i*10:(i+1)*10].values.tolist()))
+    # Return Min Speed, Max Speed and Average Speed
+    return [min(tmp), max(tmp), round(sum(tmp)/len(tmp), 2)]
+

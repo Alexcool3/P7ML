@@ -1,11 +1,14 @@
-import requests
 import url
 import web_connection as wc
-import pandas as pd
 import features
 
+# Testing the feature calculations and retrieving data from the server.
 df = wc.read_csv_files_from_url(url.URL.TEST.value)
+for i in range(len(df)):
+    tmp = features.waiting_info(df[i]["X"], df[i]["Z"], df[i]["Time"])
+    print(f'Participant_{i}: Waiting Time:{tmp[0]} sec, Waiting Count:{tmp[1]}, Waiting Time Percentage:{tmp[2]}%, Average Waiting Time:{tmp[3]} sec')
+    print(f'Participant_{i}: Total Distance:{features.distance(df[i]["X"], df[i]["Z"])} m')
+    tmp = features.ispeed(df[i]["X"], df[i]["Z"])
+    print(f'Participant_{i}: Min Speed:{tmp[0]}, Max Speed:{tmp[1]}, Average Speed:{tmp[2]}')
 
-#tmp = preprocessing.waiting_info(df[2]["X"], df[2]["Z"], df[2]["Time"])
-print(f'Total Distance:{features.distance(df[2]["X"], df[2]["Z"])}')
-#print(f'Waiting Time:{round(tmp[0], 2)}, Waiting Count:{round(tmp[1],2)}, Wait Time Percentage:{round(tmp[2],2)}, Average Waiting Time:{round(tmp[3],2)}')
+

@@ -1,7 +1,5 @@
 # This file contains all URLs needed for this project.
-
 from enum import Enum
-
 #  URLs:
 #  "https://p7server.000webhostapp.com/download_table.php"
 #  "https://p7server.000webhostapp.com/Participants/"
@@ -9,6 +7,7 @@ from enum import Enum
 #  "https://p7server.000webhostapp.com/Alternative/"
 
 
+# This enum contains URL's for folders or files on the server.
 class URL(Enum):
     PARTICIPANTS = "https://p7server.000webhostapp.com/Participants/"
     TEST = "https://p7server.000webhostapp.com/Test"
@@ -16,4 +15,7 @@ class URL(Enum):
     TABLE = "https://p7server.000webhostapp.com/download_table.php"
 
 
-
+# This enum refers to the tables in the mysql database.
+class TABLE(Enum):
+    TEST = "test"
+    PARTICIPANTS = "participants"

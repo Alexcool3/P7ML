@@ -49,6 +49,3 @@ def table_to_data_frame(table):
 
 def is_number(input_string):
     return any(char.isdigit() for char in input_string)
-
-
-print(get_table('test').head())
