@@ -4,6 +4,7 @@ import features
 
 # Testing the feature calculations and retrieving data from the server.
 df = wc.read_csv_files_from_url(url.URL.TEST.value)
+database = wc.get_table("test")
 for i in range(len(df)):
     tmp = features.waiting_info(df[i]["X"], df[i]["Z"], df[i]["Time"])
     print(f'Participant_{i}: Waiting Time:{tmp[0]} sec, Waiting Count:{tmp[1]}, Waiting Time Percentage:{tmp[2]}%, Average Waiting Time:{tmp[3]} sec')
@@ -11,4 +12,4 @@ for i in range(len(df)):
     tmp = features.ispeed(df[i]["X"], df[i]["Z"])
     print(f'Participant_{i}: Min Speed:{tmp[0]}, Max Speed:{tmp[1]}, Average Speed:{tmp[2]}')
 
-
+print(database["Time"])

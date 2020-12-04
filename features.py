@@ -22,7 +22,7 @@ def waiting_info(x, z, time):
                     count += 1
                     total_time += time[i]-start_time
     #Total Waiting Time, Number of Times Waited, Waiting Time out of Total Play Time, Average Waiting Time.
-    return [round(total_time, 2), count, round(total_time/(len(time)/10), 2), round(total_time/count, 2)]
+    return [round(total_time, 2), count, round(total_time/max(time)*100, 2), round(total_time/count, 2)]
 
 
 # This function returns the total distance between each data point.
