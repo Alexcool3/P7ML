@@ -5,22 +5,19 @@ import math
 # This function returns the total waiting time and number of times waited.
 def waiting_info(x, z, time):
     start_time = 0
-    count = 0
     total_time = 0
+    count = 0
     found = False
     for i in range(len(x)-1):
-        if i == 0:
-            continue
-        else:
-            if not found:
-                if x[i-1] == x[i] and z[i-1] == z[i]:
-                    found = True
-                    start_time = time[i-1]
-            elif found:
-                if x[i-1] != x[i] or z[i-1] != z[i] or i == len(x)-1:
-                    found = False
-                    count += 1
-                    total_time += time[i]-start_time
+        if not found:
+            if x[i] == x[i+1] and z[i] == z[i+1]:
+                found = True
+                start_time = time[i]
+        elif found:
+            if x[i] != x[i+1] or z[i] != z[i+1] or i == len(x)-1:
+                found = False
+                count += 1
+                total_time += time[i+1]-start_time
     #Total Waiting Time, Number of Times Waited, Waiting Time out of Total Play Time, Average Waiting Time.
     return [round(total_time, 2), count, round(total_time/max(time)*100, 2), round(total_time/count, 2)]
 

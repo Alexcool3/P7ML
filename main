@@ -12,4 +12,3 @@ for i in range(len(df)):
     tmp = features.ispeed(df[i]["X"], df[i]["Z"])
     print(f'Participant_{i}: Min Speed:{tmp[0]}, Max Speed:{tmp[1]}, Average Speed:{tmp[2]}')
 
-print(database["Time"])
