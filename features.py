@@ -4,6 +4,10 @@ import math
 
 # This function returns the total waiting time and number of times waited.
 def waiting_info(x, z, time):
+    """
+    Parameters: x,z and time must each be a list and have the same size.
+    Info: This function computes the Waiting Time, Number of Times waited, Waiting Time Percentage and Average Waiting Time.
+    """
     start_time = 0
     total_time = 0
     count = 0
@@ -24,6 +28,10 @@ def waiting_info(x, z, time):
 
 # This function returns the total distance between each data point.
 def distance(x, z):
+    """
+    Parameters: x and z must each be a list and have the same size.
+    Info: This function returns the total distance between each data point given as input.
+    """
     dist = 0
     for i in range(len(x)-1):
         dist += math.sqrt(((x[i+1]-x[i])**2 + (z[i+1]-z[i])**2))
@@ -32,6 +40,10 @@ def distance(x, z):
 
 # This function computes the instantaneous speed for each second.
 def ispeed(x, z):
+    """
+    Parameters: x and z must each be a list and have the same size.
+    Info: This function returns the minimum and maximum instantaneous speed in m/s.
+    """
     tmp = []
     for i in range(math.floor(len(x)/10)+1):
         if i == int(len(x)/10):
@@ -39,5 +51,24 @@ def ispeed(x, z):
         else:
             tmp.append(distance(x[i*10:(i+1)*10].values.tolist(), z[i*10:(i+1)*10].values.tolist()))
     # Return Min Speed, Max Speed and Average Speed
-    return [min(tmp), max(tmp), round(sum(tmp)/len(tmp), 2)]
+    return [min(tmp), max(tmp)]
+
+
+def average_speed(x, z, time):
+    """
+    Parameters: x,z and time must each be a list and have the same size.
+    Info: This function returns the average speed in m/s.
+    """
+    # Return average speed.
+    return round(distance(x, z) / max(time), 2)
+
+
+def speed_info(x, z, time):
+    """
+    Parameters:
+    Function:
+    """
+    tmp = ispeed(x, z)
+    # Return Min Speed, Max Speed and Average Speed and Average Speed.
+    return [tmp[0], tmp[1], average_speed(x, z, time)]
 

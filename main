@@ -9,6 +9,7 @@ for i in range(len(df)):
     tmp = features.waiting_info(df[i]["X"], df[i]["Z"], df[i]["Time"])
     print(f'Participant_{i}: Waiting Time:{tmp[0]} sec, Waiting Count:{tmp[1]}, Waiting Time Percentage:{tmp[2]}%, Average Waiting Time:{tmp[3]} sec')
     print(f'Participant_{i}: Total Distance:{features.distance(df[i]["X"], df[i]["Z"])} m')
-    tmp = features.ispeed(df[i]["X"], df[i]["Z"])
+    tmp = features.speed_info(df[i]["X"], df[i]["Z"], df[i]["Time"])
     print(f'Participant_{i}: Min Speed:{tmp[0]}, Max Speed:{tmp[1]}, Average Speed:{tmp[2]}')
+
 
