@@ -9,6 +9,9 @@ from enum import Enum
 
 # This enum contains URL's for folders or files on the server.
 class URL(Enum):
+    """
+    This enum contains the URL for folders or files on the server.
+    """
     PARTICIPANTS = "https://p7server.000webhostapp.com/Participants/"
     TEST = "https://p7server.000webhostapp.com/Test"
     ALTERNATIVE = "https://p7server.000webhostapp.com/Alternative/"
@@ -17,5 +20,8 @@ class URL(Enum):
 
 # This enum refers to the tables in the mysql database.
 class TABLE(Enum):
+    """
+    This enum contains all the tables in the mysql database.
+    """
     TEST = "test"
     PARTICIPANTS = "participants"

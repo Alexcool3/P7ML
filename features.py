@@ -66,7 +66,7 @@ def average_speed(x, z, time):
 def speed_info(x, z, time):
     """
     Parameters: x,z and time must each be a list and have the same size.
-    Function: This function returns information regarding speed in terms of minimum, maximum and average speed in m/s.
+    Info: This function returns information regarding speed in terms of minimum, maximum and average speed in m/s.
     """
     tmp = ispeed(x, z)
     # Return Min Speed, Max Speed and Average Speed and Average Speed.
